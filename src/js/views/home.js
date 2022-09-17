@@ -1,15 +1,21 @@
 import React from "react";
-import rigoImage from "../../img/rigo-baby.jpg";
-import "../../styles/home.css";
+import requests from "../../Requests";
+import Main from "../component/Main";
+import Rows from "../component/Rows";
+
 
 export const Home = () => (
-	<div className="text-center mt-5">
-		<h1>Hello Rigo!</h1>
-		<p>
-			<img src={rigoImage} />
-		</p>
-		<a href="#" className="btn btn-success">
-			If you see this green button, bootstrap is working
-		</a>
+	
+	<div className="text-center bg-dark mt-5">
+	<Main />
+	<React.StrictMode>
+	<div>
+	<Rows rowID="1"  title="Up Coming" fetchURL={requests.requestUpComing} />
+	<Rows rowID="2"  title="Popular" fetchURL={requests.requestPopular} />
+	<Rows rowID="3"  title="Top Rated" fetchURL={requests.requestTopRated} />
+	<Rows rowID="4"  title="Horror" fetchURL={requests.requestHorror} />
 	</div>
+	</React.StrictMode>
+	</div>
+	
 );
